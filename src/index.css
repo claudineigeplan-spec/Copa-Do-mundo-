@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+@layer utilities {
+  .spectrum-bg {
+    background: linear-gradient(135deg, #ff0000 0%, #ff7f00 15%, #ffff00 30%, #00ff00 50%, #0000ff 70%, #4b0082 85%, #8b00ff 100%);
+    background-size: 300% 300%;
+    animation: spectrumShift 15s ease infinite;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card-light {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+
+  .text-shadow-rainbow {
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Acessibilidade de Teclado - Estilo de Foco Visível para Navegação por Teclado */
+*:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 4px solid #eab308 !important; /* Cor Amarela do Copa do Mundo */
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(234, 179, 8, 0.3) !important;
+}
+
+/* Acessibilidade - Legibilidade de Fontes Ampliadas */
+.accessibility-large-text {
+  font-size: 1.125rem !important; /* Base ligeiramente maior */
+}
+
+.accessibility-large-text .text-xs,
+.accessibility-large-text .text-[10px],
+.accessibility-large-text .text-[11px],
+.accessibility-large-text .text-xxs {
+  font-size: 0.95rem !important; /* Aumenta textos pequenos */
+  line-height: 1.45 !important;
+}
+
+.accessibility-large-text .text-sm,
+.accessibility-large-text .text-xs {
+  font-size: 1.1rem !important;
+  line-height: 1.5 !important;
+}
+
+.accessibility-large-text .text-base {
+  font-size: 1.25rem !important;
+  line-height: 1.5 !important;
+}
+
+.accessibility-large-text .text-lg {
+  font-size: 1.45rem !important;
+}
+
+.accessibility-large-text .text-xl {
+  font-size: 1.7rem !important;
+}
+
+.accessibility-large-text .text-2xl {
+  font-size: 2rem !important;
+}
+
+.accessibility-large-text .text-3xl {
+  font-size: 2.3rem !important;
+}
+
+.accessibility-large-text .text-4xl,
+.accessibility-large-text .text-5xl,
+.accessibility-large-text .text-8xl {
+  font-size: 2.8rem !important;
+  line-height: 1.1 !important;
+}
+
+.accessibility-large-text h1,
+.accessibility-large-text h2,
+.accessibility-large-text h3 {
+  letter-spacing: normal !important; /* Melhora a leitura sem apertar muito */
+}
+
+/* Acessibilidade - Alto Contraste */
+.accessibility-high-contrast {
+  background: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.accessibility-high-contrast .spectrum-bg,
+.accessibility-high-contrast .bg-linear-to-r,
+.accessibility-high-contrast .bg-linear-to-br {
+  background: #000000 !important;
+  background-image: none !important;
+}
+
+.accessibility-high-contrast .absolute.inset-0.bg-black\/35,
+.accessibility-high-contrast .absolute.inset-0.bg-black\/20 {
+  background: rgba(0, 0, 0, 0.85) !important;
+}
+
+.accessibility-high-contrast .glass-card,
+.accessibility-high-contrast .glass-card-light {
+  background: #111111 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.accessibility-high-contrast .glass-input {
+  background: #000000 !important;
+  border: 3px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.accessibility-high-contrast .glass-input:focus {
+  border-color: #facc15 !important; /* Amarelo Puro */
+  box-shadow: 0 0 0 4px #000000, 0 0 0 8px #facc15 !important;
+}
+
+.accessibility-high-contrast .text-zinc-100,
+.accessibility-high-contrast .text-zinc-150,
+.accessibility-high-contrast .text-zinc-200,
+.accessibility-high-contrast .text-zinc-300,
+.accessibility-high-contrast .text-zinc-400,
+.accessibility-high-contrast .text-zinc-500,
+.accessibility-high-contrast .text-zinc-600,
+.accessibility-high-contrast .text-slate-300,
+.accessibility-high-contrast .text-zinc-350 {
+  color: #ffffff !important; /* Força branco em todos os subtextos */
+}
+
+.accessibility-high-contrast .bg-slate-950,
+.accessibility-high-contrast .bg-slate-900,
+.accessibility-high-contrast .bg-zinc-900,
+.accessibility-high-contrast .bg-zinc-950,
+.accessibility-high-contrast .bg-white\/5,
+.accessibility-high-contrast .bg-white\/10,
+.accessibility-high-contrast .bg-white\/15,
+.accessibility-high-contrast .bg-white\/20,
+.accessibility-high-contrast .bg-white\/25 {
+  background-color: #111111 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.accessibility-high-contrast .text-yellow-400,
+.accessibility-high-contrast .text-yellow-405,
+.accessibility-high-contrast .text-yellow-450 {
+  color: #facc15 !important;
+  font-weight: 900 !important;
+}
+
+.accessibility-high-contrast border-white\/25,
+.accessibility-high-contrast border-white\/20,
+.accessibility-high-contrast border-white\/10,
+.accessibility-high-contrast border-white\/5 {
+  border-color: #ffffff !important;
+}
+
+/* Acessibilidade - Modo de Contraste Claro (Fonte Preta) */
+.accessibility-black-font {
+  background: #fdfdfd !important;
+  background-image: none !important;
+  color: #000000 !important;
+}
+
+.accessibility-black-font .spectrum-bg,
+.accessibility-black-font .bg-linear-to-r,
+.accessibility-black-font .bg-linear-to-br,
+.accessibility-black-font .bg-slate-900,
+.accessibility-black-font .bg-slate-950,
+.accessibility-black-font .bg-zinc-900,
+.accessibility-black-font .bg-zinc-950 {
+  background: #f8fafc !important; /* light slate background */
+  background-image: none !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.accessibility-black-font .absolute.inset-0.bg-black\/35,
+.accessibility-black-font .absolute.inset-0.bg-black\/20 {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: none !important;
+}
+
+.accessibility-black-font .glass-card,
+.accessibility-black-font .glass-card-light {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.accessibility-black-font .text-white,
+.accessibility-black-font .text-zinc-100,
+.accessibility-black-font .text-zinc-150,
+.accessibility-black-font .text-zinc-200,
+.accessibility-black-font .text-zinc-300,
+.accessibility-black-font .text-zinc-400,
+.accessibility-black-font .text-zinc-500,
+.accessibility-black-font .text-zinc-600,
+.accessibility-black-font .text-slate-300,
+.accessibility-black-font .text-zinc-350 {
+  color: #000000 !important; /* Force completely black text for absolute highest contrast */
+  font-weight: 700 !important; /* Boost readability weight slightly */
+}
+
+.accessibility-black-font h1,
+.accessibility-black-font h2,
+.accessibility-black-font h3,
+.accessibility-black-font h4,
+.accessibility-black-font h5,
+.accessibility-black-font h6 {
+  color: #000000 !important;
+  font-weight: 900 !important;
+}
+
+.accessibility-black-font input,
+.accessibility-black-font select,
+.accessibility-black-font textarea,
+.accessibility-black-font .glass-input {
+  background: #ffffff !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.accessibility-black-font input::placeholder,
+.accessibility-black-font textarea::placeholder {
+  color: #334155 !important;
+}
+
+.accessibility-black-font button {
+  border-color: #000000 !important;
+}
+
+.accessibility-black-font p, 
+.accessibility-black-font span, 
+.accessibility-black-font label {
+  color: #000000 !important;
+}
+
+@keyframes spectrumShift {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* Custom scrollbar and ambient visual adjustments */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+

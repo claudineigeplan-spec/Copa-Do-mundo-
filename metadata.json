@@ -1,0 +1,6 @@
+{
+  "name": "Copa do Mundo",
+  "description": "Marketplace global de figurinhas da Copa do Mundo para comprar, vender e trocar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
